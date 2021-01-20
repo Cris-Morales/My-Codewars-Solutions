@@ -1,0 +1,6 @@
+def get_count(input_str):
+    num_vowels = 0
+    vowels = 'aeiou'
+    for i in vowels:
+        num_vowels += input_str.count(i,0,len(input_str))
+    return num_vowels
