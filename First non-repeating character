@@ -1,0 +1,14 @@
+def first_non_repeating_letter(string):
+
+    chars = list(string)
+    unique = ''
+
+    for i in chars:
+        cap_I = i.swapcase()
+        if cap_I == i and chars.count(i) == 1:
+            unique = i
+            break
+        if chars.count(i) == 1 and chars.count(cap_I) == 0:
+            unique = i
+            break
+    return (unique)
