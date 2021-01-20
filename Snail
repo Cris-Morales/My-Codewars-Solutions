@@ -1,0 +1,29 @@
+def snail(snail_map):
+    snail = []
+    emptycell = []
+    i = 1
+    j = len(snail_map) - 2
+
+    while len(snail_map) > 0:
+        if snail_map[0]:
+            snail.append(snail_map[0].pop(0))
+# condition that added last element of middle rows
+        elif i < len(snail_map) and len(snail_map[i]) == len(snail_map):
+                snail.append(snail_map[i].pop())
+                i += 1
+# condition adds reverse of final row
+        elif snail_map[i-1]:
+                snail.append(snail_map[i-1].pop())
+        elif not snail_map[i-1] and j > 0:
+                snail.append(snail_map[j].pop(0))
+                j -= 1
+# end condition for the while loop
+        elif snail_map.count([]) == len(snail_map):
+            break
+        else:
+            for element in snail_map:
+                if element == emptycell:
+                    snail_map.remove(emptycell)
+            i = 1
+            j = len(snail_map) - 2
+    return(snail)
