@@ -1,0 +1,5 @@
+def array_diff(prime,sec):
+    for i in sec:
+        while i in prime:
+            prime.remove(i)
+    return prime
