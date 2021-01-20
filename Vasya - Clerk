@@ -1,0 +1,13 @@
+def tickets(people):
+    results = ''
+    change = []
+    for i in people:
+        change.append(i)
+        if change.count(100)+change.count(50)<=change.count(25) and change.count(100) <= change.count(50):
+            results = "YES"
+        elif 3*change.count(100)+change.count(50)<=change.count(25):
+            results = "YES"
+        else:
+            results = "NO"
+            break
+    return results
