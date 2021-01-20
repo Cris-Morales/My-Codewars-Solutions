@@ -1,0 +1,32 @@
+def next_bigger(n):
+    # setup
+    separate = list(str(n))
+    digits = [int(i) for i in separate]
+    ref = sorted(digits, reverse=True)
+    results = []
+    compare = []
+
+# initial break condition: cant be sorted, single digit, highest possible combo
+    if len(digits) == 1 or digits.count(digits[0]) == len(digits) or ref == digits:
+        results = -1
+# this is where the fun begins...
+    else:
+        while not results:
+            compare.insert(0, digits.pop())
+            i = len(compare) - 1
+            while i >= 0:
+                if compare[i] > digits[len(digits)-1]:
+                    new = compare[i]
+                    old = digits[len(digits)-1]
+                    compare[i] = old
+                    digits[len(digits)-1] = new
+                    if len(compare) > 1:
+                        compare.sort()
+                        results = digits + compare
+                        break
+                    else:
+                        results = digits + compare
+                        break
+                i -= 1
+        results = int(''.join([str(j) for j in results]))
+    return results
